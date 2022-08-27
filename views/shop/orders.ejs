@@ -1,0 +1,67 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+
+  <!-- Navigation and Cart Side Panel  -->
+  <%- include('../includes/navigation.ejs') %>
+  
+    <!-- breadcrum -->
+    <div class="py-4 container flex gap-3 items-center font-roboto">
+        <a href="/" class="text-primary text-base">
+            <ion-icon name="home" class="block"></ion-icon>
+        </a>
+        <span class="text-sm text-gray-400">
+            <ion-icon name="chevron-forward-outline" class="block"></ion-icon>
+        </span>
+        <p class="text-gray-600 font-medium">Order History</p>
+    </div>
+    <!-- breadcrum end -->
+
+    <section class="orders light-section pb-16 pt-4">
+        <div class="container pt-12">
+            <h1 class="font-bold text-lg mb-4">All orders</h1>
+
+            <table class="w-full table-auto bg-white">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Orders</th>
+                        <th class="px-4 py-2 text-left">Phone</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                        <th class="px-4 py-2 text-left">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(orders.length) { %>
+                    <% orders.forEach((order) => { %>
+                    <tr>
+                        <td class="border px-4 py-2">
+                            <a class="text-primary hover:text-hover" href="/order/<%= order._id %>"><%= order._id %></a>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= order.phone %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= order.address %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= moment(order.createdAt).format('hh:mm A') %>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <% } else { %>
+                    <tr>
+                        <td class="p-4"><span>No orders found!</span></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- Footer and back to top -->
+    <%- include('../includes/footer.ejs') %>
+
+    <!-- End of the file -->
+    <%- include('../includes/end.ejs') %>

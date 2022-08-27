@@ -1,0 +1,124 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+
+  <!-- Navigation and Cart Side Panel  -->
+  <%- include('../includes/navigation.ejs') %>
+
+    <!-- Banner Section -->
+    <div class="bg-cover bg-no-repeat bg-center py-36 relative" style="background-image: url('/img/banner-bg.jpg')">
+      <div class="container">
+          <!-- banner content -->
+          <h5 class="text-primary mb-5 font-normal text-2xl italic">25% off on all products</h5>
+          <h1 class="xl:text-5xl md:text-4xl text-3xl text-gray-800 font-medium mb-4">
+              Best & Affordable <br class="hidden sm:block"> College Stuffs
+          </h1>
+          <!-- banner button -->
+          <div class="mt-12 font-roboto">
+              <a href="#shop-now" class="bg-primary border border-primary text-white px-8 py-3 font-medium rounded-md uppercase hover:bg-transparent
+             hover:text-primary transition">
+                  Shop now
+              </a>
+          </div>
+          <!-- banner button end -->
+          <!-- banner content end -->
+      </div>
+    </div>
+    <!-- Banner Section end -->
+
+    <!-- features -->
+    <div class="container py-16">
+      <div class="lg:w-10/12 grid md:grid-cols-3 gap-3 lg:gap-6 mx-auto justify-center">
+
+          <!-- single feature -->
+          <div
+              class="border-primary border rounded-sm px-8 lg:px-3 lg:py-6 py-4 flex justify-center items-center gap-5">
+              <img src="/img/icons/delivery-van.svg" class="lg:w-12 w-10 h-12 object-contain">
+              <div>
+                  <h4 class="font-medium capitalize text-lg">free shipping</h4>
+                  <p class="text-gray-500 text-xs lg:text-sm">Order over $200</p>
+              </div>
+          </div>
+          <!-- single feature end -->
+          <!-- single feature -->
+          <div
+              class="border-primary border rounded-sm px-8 lg:px-3 lg:py-6 py-4 flex justify-center items-center gap-5">
+              <img src="/img/icons/money-back.svg" class="lg:w-12 w-10 h-12 object-contain">
+              <div>
+                  <h4 class="font-medium capitalize text-lg">Money returns</h4>
+                  <p class="text-gray-500 text-xs lg:text-sm">30 Days money return</p>
+              </div>
+          </div>
+          <!-- single feature end -->
+          <!-- single feature -->
+          <div
+              class="border-primary border rounded-sm px-8 lg:px-3 lg:py-6 py-4 flex justify-center items-center gap-5">
+              <img src="/img/icons/service-hours.svg" class="lg:w-12 w-10 h-12 object-contain">
+              <div>
+                  <h4 class="font-medium capitalize text-lg">24/7 Support</h4>
+                  <p class="text-gray-500 text-xs lg:text-sm">Customer support</p>
+              </div>
+          </div>
+          <!-- single feature end -->
+
+      </div>
+    </div>
+    <!-- features end -->
+
+    <!-- top new arrival -->
+    <div id="shop-now" class="container pb-16">
+      <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">top new products</h2>
+      <!-- product wrapper -->
+      <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
+
+
+          <!-- single product -->
+          <% products.forEach(product => { %>
+            <div class="group rounded bg-white shadow overflow-hidden">
+                <!-- product image -->
+                <div class="relative">
+                    <img src="<%= product.image %>" class="w-full">
+                </div>
+                <!-- product image end -->
+                <!-- product content -->
+                <div class="pt-4 pb-3 px-4">
+                    <h4 class="uppercase font-medium text-xl mb-2 text-gray-800">
+                        <%= product.title %>
+                    </h4>
+                    <div class="flex items-baseline mb-1 space-x-2">
+                        <p class="text-xl text-primary font-roboto font-semibold">$<%= product.price %>.00</p>
+                        <p class="text-sm text-gray-400 font-roboto line-through">$55.00</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex gap-1 text-sm text-yellow-400">
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                        </div>
+                        <div class="text-xs text-gray-500 ml-3">(150)</div>
+                    </div>
+                </div>
+                <!-- product content end -->
+                <!-- product button -->
+                <button data-product="<%= JSON.stringify(product) %>" id="add-to-cart"
+                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                    Add to Cart
+                </button>
+                <!-- product button end -->
+            </div>
+          <% }) %>
+
+      </div>
+      <!-- product wrapper end -->
+    </div>
+    <!-- top new arrival end -->
+
+    
+<!-- Footer and back to top -->
+<%- include('../includes/footer.ejs') %>
+
+<!-- End of the file -->
+<%- include('../includes/end.ejs') %>

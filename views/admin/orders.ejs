@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+
+  <!-- Navigation and Cart Side Panel  -->
+  <%- include('../includes/navigation.ejs') %>
+  
+    <!-- breadcrum -->
+    <div class="py-4 container flex gap-3 items-center font-roboto">
+        <a href="/" class="text-primary text-base">
+            <ion-icon name="home" class="block"></ion-icon>
+        </a>
+        <span class="text-sm text-gray-400">
+            <ion-icon name="chevron-forward-outline" class="block"></ion-icon>
+        </span>
+        <p class="text-gray-600 font-medium">Order History</p>
+    </div>
+    <!-- breadcrum end -->
+
+    <div class="container pb-16 pt-4">
+        <h1 class="font-bold text-lg mb-4">All orders</h1>
+        <table class="w-full table-auto bg-white">
+            <thead class="text-white bg-primary">
+                <tr>
+                    <th class="px-4 py-2 text-left">Orders</th>
+                    <th class="px-4 py-2 text-left">Customer</th>
+                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">status</th>
+                    <th class="px-4 py-2 text-left">Placed at</th>
+                    <th class="px-4 py-2 text-left">Payment Status</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer and back to top -->
+    <%- include('../includes/footer.ejs') %>
+
+    <!-- End of the file -->
+    <%- include('../includes/end.ejs') %>
+    

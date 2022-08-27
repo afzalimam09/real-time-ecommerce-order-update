@@ -1,0 +1,173 @@
+<!-- HEADER -->
+<header class="header sticky top-0 z-20">
+
+    <!-- optional top notice -->
+    <div class="bg-primary">
+      <div class="container mx-auto text-white py-1 text-center font-light">
+        <p>Free shipping for all order above $105</p>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="bg-slate-200">
+      <div class="container py-4 flex items-center justify-between">
+
+        <!-- Logo and Nav Open Button ✅ -->
+        <div class="flex items-center">
+
+          <button id="nav-open-btn" class="text-2xl mx-1 p-2 text-white bg-primary rounded-md md:hidden">
+            <ion-icon name="menu-outline" class="block"></ion-icon>
+          </button>
+
+          <a class="logo pl-2" href="/">
+              <img src="/img/logo.png" class="img-fluid w-24 md:w-28" >
+          </a>
+
+        </div>
+        <!-- Logo and Nav Open Button -->
+
+        <!-- Nav Menu for Desktop ✅ -->
+        <nav class="hidden md:block">
+
+          <div class="flex items-center space-x-6 text-base capitalize">
+            <a href="/" class="hover:text-primary transition">Products</a>
+            <a href="/orders" class="hover:text-primary transition">My Orders</a>
+            <a href="/" class="hover:text-primary transition">About</a>
+            <a href="/" class="hover:text-primary transition">Help & Support</a>
+          </div>
+
+        </nav>
+        <!-- Nav Menu for Desktop End -->
+
+        <!-- Nav Menu for Mobile -->
+        <nav id="mobile-nav" class="fixed left-0 top-0 w-full h-full z-20 bg-black bg-opacity-30 transition shadow invisible">
+
+          <div class="absolute left-0 top-0 w-80 h-full z-20 transition bg-white shadow">
+            <h3 class="text-xl mt-7 ml-4">Menu</h3>
+            <button id="nav-close-btn" class="absolute right-5 top-5 rounded-md text-xl text-primary bg-white p-2 border hover:border-solid hover:border hover:border-primary transition">
+              <ion-icon name="close-outline" class="block"></ion-icon>
+            </button>
+  
+            <ul class="mt-5">
+
+              <li>
+                <a href="/<%= session.isLoggedIn ? '' : 'login' %>" class="flex gap-3 items-center text-white p-3 transition bg-primary hover:bg-hover">
+                  <i class="bi bi-person-circle text-3xl"></i>
+                  <div>
+                    <h4 class="font-medium">Hi, <%= session.isLoggedIn ? session.user.name : 'Guest' %></h4>
+                    <span class="font-light"><%= session.isLoggedIn ? 'Welcome to College Cart' : 'Login' %></span>
+                  </div>
+                </a>
+              </li>
+  
+              <li class="">
+                <a href="/" class="flex gap-3 items-center p-3 transition border-b-[1px] border-solid border-gray-300 text-gray-700 hover:bg-gray-100">
+                  <i class="bi bi-shop-window"></i>
+                  <span>Products</span>
+                </a>
+              </li>
+  
+              <li class="">
+                <a href="/orders" class="flex gap-3 items-center p-3 transition border-b-[1px] border-solid border-gray-300 text-gray-700 hover:bg-gray-100">
+                  <i class="bi bi-truck"></i>
+                  <span>Your Orders</span>
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/" class="flex gap-3 items-center p-3 transition border-b-[1px] border-solid border-gray-300 text-gray-700 hover:bg-gray-100">
+                  <i class="bi bi-person-circle"></i>
+                  <span>My Account</span>
+                </a>
+              </li>
+  
+              <li class="">
+                <a href="/" class="flex items-center gap-3 p-3 transition border-b-[1px] border-solid border-gray-300 text-gray-700 hover:bg-gray-100">
+                  <i class="bi bi-info-circle block"></i>
+                  <span>About</span>
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/" class="flex gap-3 items-center p-3 transition border-b-[1px] border-solid border-gray-300 text-gray-700 hover:bg-gray-100">
+                  <i class="bi bi-headset"></i>
+                  <span>Help & Support</span>
+                </a>
+              </li>
+
+              <li class="">
+                <a href="/" class="flex gap-3 items-center transition hover:bg-hover p-3 bg-primary border-b-[1px] border-solid text-white">
+                  <i class="bi bi-question-square"></i>
+                  <span>Need Help</span>
+                </a>
+              </li>
+              <% if(session.isLoggedIn) { %>
+                <li class="mt-6 text-center">
+                  <form action="/logout" method="post">
+                    <button type="submit" class="bg-primary hover:bg-hover px-3 py-1 rounded-md text-white">Logout</button>
+                  </form>
+                </li>
+              <% } %>
+  
+            </ul>
+          </div>
+
+        </nav>
+        <!-- Nav Menu for Mobile End-->
+        
+        <!-- Header Action Buttons ✅-->
+        <div class="header-action flex items-center gap-4">
+
+          <div id="search-wrapper" class="relative">
+
+            <button id="search-btn" class="header-action-btn block rounded-md text-2xl text-primary bg-white p-2 border hover:border-solid hover:border hover:border-primary transition">
+              <ion-icon name="search-outline" class="search-icon block"></ion-icon>
+              <ion-icon name="close-outline" class="close-icon block"></ion-icon>
+            </button>
+
+            <div class="input-wrapper bg-white z-10 text-gray-600 p-4 absolute -right-10 top-16 w-60 shadow-md rounded invisible opacity-0">
+              <input type="search" name="search" placeholder="Search here" class="search-input text-gray-600 text-sm outline-none border border-solid focus:border-gray-400 px-4 py-2 rounded">
+
+              <button class="search-submit absolute top-[38%] right-5" aria-label="Submit search">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </div>
+
+          </div>
+
+
+          <a href="/cart" id="cart-open-btn" class="text-2xl text-primary bg-white p-2 rounded-md relative border hover:border-solid hover:border hover:border-primary transition">
+            <ion-icon name="cart-outline" class="block"></ion-icon>
+            <span id="cart-count" class="absolute -right-1 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-[0.6rem] font-roboto"><%= session.cart ? session.cart.totalQty : 0 %></span>
+          </a>
+
+          <div class="profile-btn relative hidden md:block">
+            <button class="text-2xl text-primary bg-white p-2 rounded-md border hover:border-solid hover:border hover:border-primary transition">
+              <ion-icon name="person-outline" class="block"></ion-icon>
+            </button>
+
+            <div class="profile-wrapper z-10 text-center rounded-md absolute right-0 top-11 w-56 bg-white shadow p-4 opacity-0 invisible">
+              <h6>Hi, <%= session.isLoggedIn ? session.user.name : 'Guest' %> </h6>
+              <h5 class="my-2">Welcome to KISTcart</h5>
+              <div>
+                <% if(!session.isLoggedIn) { %>
+                  <a href="/login" class="bg-primary hover:bg-hover px-3 py-1 rounded-md text-white">Login</a>
+                  <a href="/signup" class="bg-primary hover:bg-hover px-3 py-1 rounded-md text-white">Signup</a>
+                  <% } else { %>
+                    <form action="/logout" method="post">
+                      <button type="submit" class="bg-primary hover:bg-hover px-3 py-1 rounded-md text-white">Logout</button>
+                    </form>
+                  <% } %>
+                 </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- Header Action Buttons Ends -->
+
+      </div>
+
+    </div>
+
+</header>

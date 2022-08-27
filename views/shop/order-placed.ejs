@@ -1,0 +1,46 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+
+  <!-- Navigation and Cart Side Panel  -->
+  <%- include('../includes/navigation.ejs') %>
+  
+  <% if(messages.orderplaced) { %>
+    <!-- breadcrum -->
+    <div class="py-4 container flex gap-3 items-center font-roboto">
+        <a href="/" class="text-primary text-base">
+            <ion-icon name="home" class="block"></ion-icon>
+        </a>
+        <span class="text-sm text-gray-400">
+            <ion-icon name="chevron-forward-outline" class="block"></ion-icon>
+        </span>
+        <p class="text-gray-600 font-medium">Order Placed</p>
+    </div>
+    <!-- breadcrum end -->
+    <% } %>
+
+    <% if(messages.orderplaced) { %>
+        <div class="container text-center pb-16 pt-4">
+            <button class="text-3xl text-white items-center bg-primary p-3 rounded-full cursor-auto">
+                <ion-icon name="checkmark-done-outline" class="block"></ion-icon>
+            </button>
+            <h2 class="my-5 text-3xl">Order Placed Successfully!</h2>
+            <p class="text-center mb-8 text-gray-700">Thank you for your order! <br> Your order is being processed and will be confirmed within 1-2 hours. <br> You will receive an email confirmation when your order is confirmed.</p>
+            <a href="/orders" class="bg-primary border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
+                hover:text-primary transition text-sm w-full mt-3">Your Orders</a>
+        </div>
+    <% } else { %>
+        <div class="container text-center pt-4 my-16">
+            <h2 class="text-3xl mb-8">Page Not Found!</h2>
+            <a href="/" class="bg-primary border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
+                    hover:text-primary transition text-sm w-full mt-3">Back to Home</a>
+        </div>
+    <% } %>
+
+
+    <!-- Footer and back to top -->
+    <%- include('../includes/footer.ejs') %>
+
+    <!-- End of the file -->
+    <%- include('../includes/end.ejs') %>
