@@ -26820,7 +26820,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
  // Create an instance of Notyf
 
-var notyf = new notyf__WEBPACK_IMPORTED_MODULE_2__.Notyf();
+var notyf = new notyf__WEBPACK_IMPORTED_MODULE_2__.Notyf({
+  position: {
+    x: 'right',
+    y: 'top'
+  }
+});
 
 var initAdmin = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(socket) {
@@ -26846,7 +26851,7 @@ var initAdmin = /*#__PURE__*/function () {
             };
 
             socket.on('orderPlaced', function (order) {
-              notyf.success('Order Updated!');
+              notyf.success('New Order Placed!');
               orders.unshift(order);
               orderTableBody.innerHTML = '';
               orderTableBody.innerHTML = generateMarkup(orders);
@@ -26913,7 +26918,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
  // Create an instance of Notyf
 
-var notyf = new notyf__WEBPACK_IMPORTED_MODULE_1__.Notyf();
+var notyf = new notyf__WEBPACK_IMPORTED_MODULE_1__.Notyf({
+  position: {
+    x: 'right',
+    y: 'top'
+  }
+});
 
 var initCart = function initCart() {
   var addToCart = document.querySelectorAll("#add-to-cart");
@@ -27103,7 +27113,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // Create an instance of Notyf
 
-var notyf = new notyf__WEBPACK_IMPORTED_MODULE_3__.Notyf();
+var notyf = new notyf__WEBPACK_IMPORTED_MODULE_3__.Notyf({
+  position: {
+    x: 'right',
+    y: 'top'
+  }
+});
 var menuOpenBtn = document.querySelector("#nav-open-btn");
 var menuCloseBtn = document.querySelector("#nav-close-btn");
 var mobileNav = document.querySelector("#mobile-nav");
@@ -27180,7 +27195,7 @@ socket.on('orderUpdated', function (data) {
   updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_2__().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
-  notyf.success('Order Updated!');
+  notyf.success('Order Status Updated!');
 });
 })();
 

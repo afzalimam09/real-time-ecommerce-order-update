@@ -5,7 +5,12 @@ import moment from "moment";
 import { Notyf } from 'notyf';
 
 // Create an instance of Notyf
-const notyf = new Notyf();
+const notyf = new Notyf({
+  position: {
+      x: 'right',
+      y: 'top',
+  },
+});
 
 const menuOpenBtn = document.querySelector("#nav-open-btn");
 const menuCloseBtn = document.querySelector("#nav-close-btn");
@@ -89,5 +94,5 @@ socket.on('orderUpdated', (data) => {
   updatedOrder.updatedAt = moment().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
-  notyf.success('Order Updated!');
+  notyf.success('Order Status Updated!');
 })

@@ -3,7 +3,12 @@ import moment from "moment";
 import { Notyf } from 'notyf';
 
 // Create an instance of Notyf
-const notyf = new Notyf();
+const notyf = new Notyf({
+    position: {
+        x: 'right',
+        y: 'top',
+    },
+});
 
 const initAdmin = async (socket) => {
     const orderTableBody = document.querySelector('#orderTableBody');
@@ -65,7 +70,7 @@ const initAdmin = async (socket) => {
     }
 
     socket.on('orderPlaced', (order) => {
-        notyf.success('Order Updated!');
+        notyf.success('New Order Placed!');
         orders.unshift(order);
         orderTableBody.innerHTML = '';
         orderTableBody.innerHTML = generateMarkup(orders);

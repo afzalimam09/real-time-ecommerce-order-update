@@ -3,7 +3,12 @@ import axios from "axios";
 import { Notyf } from 'notyf';
 
 // Create an instance of Notyf
-const notyf = new Notyf();
+const notyf = new Notyf({
+  position: {
+      x: 'right',
+      y: 'top',
+  },
+});
 
 const initCart = () => {
   const addToCart = document.querySelectorAll("#add-to-cart");
